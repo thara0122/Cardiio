@@ -1,7 +1,7 @@
 package com.example.cardiio;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView Info ;
     private Button Login;
     private int counter =5 ;
+    private TextView userRegistration;
 
 
     @Override
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         Password = (EditText) findViewById(R.id.etPassword);
         Info = (TextView) findViewById(R.id.tvinfo);
         Login = (Button)findViewById(R.id.btnLogin);
+        userRegistration = (TextView) findViewById(R.id.tvRegister);
 
         Info.setText("No of attempts remaining : 5");
 
@@ -36,11 +38,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        userRegistration.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, RegistrationActivity.class));
+            }
+        });
 
     }
 
     private void validate (String userName ,String userPassword){
-        if ((userName == "Admin" ) && (userPassword == "12345")) {
+        if ((userName.equals("Admin")) && (userPassword.equals( "12345"))) {
             Intent intent = new Intent(MainActivity.this, SecondActivity.class);
             startActivity(intent);
         }else{
