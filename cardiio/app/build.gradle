@@ -12,6 +12,7 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
@@ -33,13 +34,15 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:28.4.0')
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'androidx.appcompat:appcompat:1.1.0+'
-
     implementation 'com.android.support.constraint:constraint-layout:2.0.4'
     implementation 'com.google.firebase:firebase-auth:21.0.1'
-    //implementation 'com.google.firebase:firebase-database'
     implementation 'com.google.firebase:firebase-database:20.0.1'
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
+    implementation 'com.google.firebase:firebase-firestore:23.0.3'
+    implementation 'com.google.firebase:firebase-storage:20.0.0'
+    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation 'com.squareup.picasso:picasso:2.71828'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
