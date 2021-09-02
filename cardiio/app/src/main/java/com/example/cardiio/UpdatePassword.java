@@ -57,7 +57,6 @@ public class UpdatePassword extends AppCompatActivity {
 
     }
 
-
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 

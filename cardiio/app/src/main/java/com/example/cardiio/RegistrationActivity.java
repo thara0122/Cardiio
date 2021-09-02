@@ -68,7 +68,6 @@ public class RegistrationActivity extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseStorage = FirebaseStorage.getInstance();
-
         storageReference = firebaseStorage.getReference();
 
         userProfilePic.setOnClickListener(new View.OnClickListener() {
@@ -142,6 +141,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
     private void sendEmailVerification(){
         FirebaseUser firebaseUser = firebaseAuth.getInstance().getCurrentUser();
+
         if(firebaseUser!=null){
             firebaseUser.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
