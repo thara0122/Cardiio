@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/username"
-        android:hintTextColor="#546E7A"
+
         android:inputType="textPersonName"
         android:minHeight="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -36,7 +36,7 @@
         app:layout_constraintTop_toBottomOf="@+id/ivProfileUpdate"
         app:layout_constraintVertical_bias="0.098"
         tools:ignore="TextContrastCheck,TextContrastCheck"
-        android:autofillHints="" />
+         />
 
     <EditText
         android:id="@+id/etEmailUpdate"
@@ -44,7 +44,6 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/email"
-        android:hintTextColor="#546E7A"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -54,7 +53,7 @@
         app:layout_constraintTop_toBottomOf="@+id/etNameUpdate"
         app:layout_constraintVertical_bias="0.114"
         tools:ignore="TextContrastCheck,TextContrastCheck"
-        android:autofillHints="" />
+         />
 
     <EditText
         android:id="@+id/etAgeUpdate"
@@ -71,7 +70,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etEmailUpdate"
         app:layout_constraintVertical_bias="0.0"
-        android:autofillHints="" />
+         />
 
     <Button
         android:id="@+id/btnSave"

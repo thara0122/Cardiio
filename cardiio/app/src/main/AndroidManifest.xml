@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Cardiio">
         <activity
-            android:name=".SplashScreen"
+            android:name=".MainActivity"
             android:exported="true" />
         <activity
             android:name=".UpdatePassword"
@@ -35,9 +35,7 @@
         <activity
             android:name=".SecondActivity"
             android:exported="true" />
-        <activity android:name=".MainActivity">
-
-
+        <activity android:name=".SplashScreen">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
