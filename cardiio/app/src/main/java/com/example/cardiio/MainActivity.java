@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         if(user != null){
             finish();;
             startActivity(new Intent(MainActivity.this, SecondActivity.class));
+
         }
 
         Login.setOnClickListener(new View.OnClickListener() {
