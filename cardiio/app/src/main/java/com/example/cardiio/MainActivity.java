@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
     private TextView Info ;
     private Button Login;
     private int counter =5 ;
-    private TextView userRegistration;
     private FirebaseAuth firebaseAuth;
     private ProgressDialog progressDialog;
     private TextView forgotPasword;
@@ -39,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         Password = (EditText) findViewById(R.id.etPassword);
         Info = (TextView) findViewById(R.id.tvinfo);
         Login = (Button)findViewById(R.id.btnLogin);
-        userRegistration = (TextView) findViewById(R.id.tvRegister);
+        TextView userRegistration = (TextView) findViewById(R.id.tvRegister);
         forgotPasword = (TextView)findViewById(R.id.tvForgotPassword);
 
         Info.setText("No of attempts remaining : 5");

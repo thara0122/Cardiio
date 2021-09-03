@@ -16,35 +16,45 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.06"
-        app:srcCompat="@mipmap/ic_launcher" />
+        app:srcCompat="@mipmap/ic_launcher"
+        tools:ignore="ImageContrastCheck"
+        android:contentDescription="@string/todo" />
 
     <EditText
         android:id="@+id/etNameUpdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Username"
+        android:hint="@string/username"
+        android:hintTextColor="#546E7A"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivProfileUpdate"
-        app:layout_constraintVertical_bias="0.098" />
+        app:layout_constraintVertical_bias="0.098"
+        tools:ignore="TextContrastCheck,TextContrastCheck"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/etEmailUpdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Email"
+        android:hint="@string/email"
+        android:hintTextColor="#546E7A"
         android:inputType="textEmailAddress"
+        android:minHeight="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etNameUpdate"
-        app:layout_constraintVertical_bias="0.114" />
+        app:layout_constraintVertical_bias="0.114"
+        tools:ignore="TextContrastCheck,TextContrastCheck"
+        android:autofillHints="" />
 
     <EditText
         android:id="@+id/etAgeUpdate"
@@ -52,20 +62,22 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
         android:ems="10"
-        android:hint="Age"
+        android:hint="@string/age"
         android:inputType="number"
+        android:minHeight="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etEmailUpdate"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        android:autofillHints="" />
 
     <Button
         android:id="@+id/btnSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Save"
+        android:text="@string/save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
