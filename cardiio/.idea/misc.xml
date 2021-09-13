@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/might/Desktop/Cardiio/cardiio/app/src/main/res/layout/activity_admin_home.xml" value="0.2" />
         <entry key="..\:/Users/might/Desktop/Cardiio/cardiio/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/might/Desktop/Cardiio/cardiio/app/src/main/res/layout/activity_password.xml" value="0.1" />
         <entry key="..\:/Users/might/Desktop/Cardiio/cardiio/app/src/main/res/layout/activity_profile.xml" value="0.176" />
@@ -10,8 +11,9 @@
         <entry key="..\:/Users/might/Desktop/Cardiio/cardiio/app/src/main/res/layout/activity_second.xml" value="0.16" />
         <entry key="..\:/Users/might/Desktop/Cardiio/cardiio/app/src/main/res/layout/activity_splash_screen.xml" value="0.12864583333333332" />
         <entry key="..\:/Users/might/Desktop/Cardiio/cardiio/app/src/main/res/layout/activity_update_password.xml" value="0.152" />
-        <entry key="..\:/Users/might/Desktop/Cardiio/cardiio/app/src/main/res/layout/activity_update_profile.xml" value="0.152" />
-        <entry key="..\:/Users/might/Desktop/Cardiio/cardiio/app/src/main/res/menu/menu.xml" value="0.1" />
+        <entry key="..\:/Users/might/Desktop/Cardiio/cardiio/app/src/main/res/layout/activity_update_profile.xml" value="0.2" />
+        <entry key="..\:/Users/might/Desktop/Cardiio/cardiio/app/src/main/res/menu/adminmenu.xml" value="0.15625" />
+        <entry key="..\:/Users/might/Desktop/Cardiio/cardiio/app/src/main/res/menu/menu.xml" value="0.2" />
         <entry key="..\:/Users/rasje/Dropbox/My PC (USSR)/Desktop/Cardiio/cardiio/app/src/main/res/layout/activity_main.xml" value="0.22309859754263106" />
         <entry key="..\:/Users/rasje/Dropbox/My PC (USSR)/Desktop/Cardiio/cardiio/app/src/main/res/layout/activity_password.xml" value="0.22309859754263106" />
         <entry key="..\:/Users/rasje/Dropbox/My PC (USSR)/Desktop/Cardiio/cardiio/app/src/main/res/layout/activity_profile.xml" value="0.1490036231884058" />
@@ -29,7 +31,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

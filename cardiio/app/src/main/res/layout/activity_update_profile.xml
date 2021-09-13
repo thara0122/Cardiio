@@ -33,33 +33,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivProfileUpdate"
-        app:layout_constraintVertical_bias="0.098"
-        tools:ignore="TextContrastCheck,TextContrastCheck"
-         />
-
-    <EditText
-        android:id="@+id/etEmailUpdate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/email"
-        android:inputType="textEmailAddress"
-        android:minHeight="48dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etNameUpdate"
-        app:layout_constraintVertical_bias="0.114"
-        tools:ignore="TextContrastCheck,TextContrastCheck"
-         />
+        app:layout_constraintTop_toBottomOf="@+id/etEmailUpdate"
+        app:layout_constraintVertical_bias="0.132"
+        tools:ignore="TextContrastCheck,TextContrastCheck" />
 
     <EditText
         android:id="@+id/etAgeUpdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
         android:ems="10"
         android:hint="@string/age"
         android:inputType="number"
@@ -68,9 +49,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEmailUpdate"
-        app:layout_constraintVertical_bias="0.0"
-         />
+        app:layout_constraintTop_toBottomOf="@+id/etNameUpdate"
+        app:layout_constraintVertical_bias="0.184" />
 
     <Button
         android:id="@+id/btnSave"
@@ -82,5 +62,17 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etAgeUpdate"
-        app:layout_constraintVertical_bias="0.284" />
+        app:layout_constraintVertical_bias="0.387" />
+
+    <TextView
+        android:id="@+id/etEmailUpdate"
+        android:layout_width="208dp"
+        android:layout_height="46dp"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivProfileUpdate"
+        app:layout_constraintVertical_bias="0.142" />
 </androidx.constraintlayout.widget.ConstraintLayout>

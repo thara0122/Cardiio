@@ -35,7 +35,8 @@ import java.io.IOException;
 
 public class UpdateProfile extends AppCompatActivity {
 
-    private EditText newUserName , newUserEmail , newUserAge;
+    private EditText newUserName  , newUserAge;
+    private TextView newUserEmail;
     private Button save;
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;

@@ -41,16 +41,22 @@ public class MainActivity extends AppCompatActivity {
         TextView userRegistration = (TextView) findViewById(R.id.tvRegister);
         forgotPasword = (TextView)findViewById(R.id.tvForgotPassword);
 
-        Info.setText("No of attempts remaining : 5");
+        //Info.setText("No of attempts remaining : 5");
 
         firebaseAuth = FirebaseAuth.getInstance();
         progressDialog = new ProgressDialog(this);
 
         FirebaseUser user = firebaseAuth.getCurrentUser();
-        if(user != null){
-            finish();;
-            startActivity(new Intent(MainActivity.this, SecondActivity.class));
+        if(user != null) {
 
+            if ((user.getEmail()).equals("mightblack2@gmail.com")) {
+                finish();
+                startActivity(new Intent(MainActivity.this, AdminHome.class));
+            } else {
+                finish();
+                startActivity(new Intent(MainActivity.this, SecondActivity.class));
+
+            }
         }
 
         Login.setOnClickListener(new View.OnClickListener() {
@@ -80,24 +86,43 @@ public class MainActivity extends AppCompatActivity {
         progressDialog.setMessage("Welcome to Cardiio");
         progressDialog.show();
 
-        firebaseAuth.signInWithEmailAndPassword(userName, userPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
-                    progressDialog.dismiss();
-                    //Toast.makeText(MainActivity.this,"Login Successful", Toast.LENGTH_SHORT).show();
-                    checkEmailVerification();
-                }else{
-                    Toast.makeText(MainActivity.this,"Login Failed", Toast.LENGTH_SHORT).show();
-                    counter --;
-                    Info.setText("No of attempts remaining:" + counter);
-                    progressDialog.dismiss();
-                    if(counter == 0){
-                        Login.setEnabled(false);
+
+        if(userName.equals("mightblack2@gmail.com")) {
+
+            firebaseAuth.signInWithEmailAndPassword(userName, userPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()) {
+                        progressDialog.dismiss();
+                        checkEmailVerification();
+                        Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                        finish();
+                        startActivity(new Intent(MainActivity.this, AdminHome.class));
+
+                    } else {
+                        Toast.makeText(MainActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
+                        progressDialog.dismiss();
                     }
                 }
-            }
-        });
+            });
+        }else{
+            firebaseAuth.signInWithEmailAndPassword(userName, userPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()) {
+                        progressDialog.dismiss();
+                        checkEmailVerification();
+                        Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                        finish();
+                        startActivity(new Intent(MainActivity.this, SecondActivity.class));
+
+                    } else {
+                        Toast.makeText(MainActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
+                        progressDialog.dismiss();
+                    }
+                }
+            });
+        }
     }
 
     private void checkEmailVerification(){
@@ -106,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
 
         if(emailflag){
             finish();
-            startActivity(new Intent(MainActivity.this, SecondActivity.class));
+            //startActivity(new Intent(MainActivity.this, SecondActivity.class));
         }else{
             Toast.makeText(this,"Verity Your Email", Toast.LENGTH_SHORT).show();
             firebaseAuth.signOut();
