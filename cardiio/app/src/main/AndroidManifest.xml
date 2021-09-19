@@ -24,12 +24,15 @@
             android:exported="true" />
         <activity
             android:name=".UpdateProfile"
+            android:parentActivityName=".MainActivity"
             android:exported="true" />
         <activity
             android:name=".ProfileActivity"
+            android:parentActivityName=".MainActivity"
             android:exported="true" />
         <activity
             android:name=".PasswordActivity"
+
             android:exported="true" />
         <activity
             android:name=".RegistrationActivity"

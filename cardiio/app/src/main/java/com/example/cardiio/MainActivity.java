@@ -22,12 +22,13 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText Name;
     private EditText Password;
-    private TextView Info ;
+    //private TextView Info ;
     private Button Login;
-    private int counter =5 ;
+   // private int counter =5 ;
     private FirebaseAuth firebaseAuth;
     private ProgressDialog progressDialog;
     private TextView forgotPasword;
+    String email, password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
         Name = (EditText) findViewById(R.id.etName);
         Password = (EditText) findViewById(R.id.etPassword);
-        Info = (TextView) findViewById(R.id.tvinfo);
+       // Info = (TextView) findViewById(R.id.tvinfo);
         Login = (Button)findViewById(R.id.btnLogin);
         TextView userRegistration = (TextView) findViewById(R.id.tvRegister);
         forgotPasword = (TextView)findViewById(R.id.tvForgotPassword);
@@ -62,7 +63,31 @@ public class MainActivity extends AppCompatActivity {
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                checkCredential();
                validate(Name.getText() .toString(),Password.getText().toString());
+
+            }
+
+            private void checkCredential() {
+                password = Password.getText().toString();
+                email = Name.getText().toString();
+
+                if (email.isEmpty() || !email.contains("@")){
+                    showError(Name,"Email is not valid");
+                }
+                else if(password.isEmpty() || password.length()<7){
+                    showError(Password,"Password Must be 7 character");
+                }
+                else if(password.isEmpty() || email.isEmpty() ) {
+                    Toast.makeText(MainActivity.this, "Please enter all the details", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                }
+            }
+
+            private void showError(EditText user, String s) {
+                user.setError(s);
+                user.requestFocus();
             }
         });
 
@@ -85,6 +110,7 @@ public class MainActivity extends AppCompatActivity {
 
         progressDialog.setMessage("Welcome to Cardiio");
         progressDialog.show();
+
 
 
         if(userName.equals("mightblack2@gmail.com")) {

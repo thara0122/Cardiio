@@ -138,7 +138,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     }
 
-    @Override
+   /* @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         switch (item.getItemId()){
@@ -146,5 +146,5 @@ public class ProfileActivity extends AppCompatActivity {
                 onBackPressed();
         }
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 }

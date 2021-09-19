@@ -131,13 +131,33 @@ public class RegistrationActivity extends AppCompatActivity {
         email = userEmail.getText().toString();
         age = userAge.getText().toString();
 
-        if(name.isEmpty() || password.isEmpty() || email.isEmpty() || age.isEmpty() || imagePath == null) {
+        if(name.isEmpty() || name.length()<7)
+        {
+            showError(userName,"Your username is not valid");
+        }
+        else if (email.isEmpty() || !email.contains("@")){
+            showError(userEmail,"Email is not valid");
+        }
+        else if(password.isEmpty() || password.length()<7){
+            showError(UserPassword,"Password must be more than 7 character");
+        }
+        else if(age.isEmpty() ){
+            showError(userAge,"Please enter your age");
+        }
+        else if(name.isEmpty() || password.isEmpty() || email.isEmpty() || age.isEmpty() || imagePath == null) {
             Toast.makeText(this, "Please enter all the details", Toast.LENGTH_SHORT).show();
         }else{
             result = true;
         }
         return result;
     }
+
+    private void showError(EditText user, String s) {
+        user.setError(s);
+        user.requestFocus();
+
+    }
+
 
     private void sendEmailVerification(){
         FirebaseUser firebaseUser = firebaseAuth.getInstance().getCurrentUser();
