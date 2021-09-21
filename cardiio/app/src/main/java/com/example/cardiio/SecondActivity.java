@@ -25,6 +25,7 @@ public class SecondActivity extends AppCompatActivity {
     private Button logout;
     private TextView bodyTemperature;
     private FirebaseDatabase firebaseDatabase;
+    private Button btnhistoryTemperature;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +35,10 @@ public class SecondActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         bodyTemperature = (TextView)findViewById(R.id.tvBodyTemperature);
         firebaseDatabase = FirebaseDatabase.getInstance();
-        final DatabaseReference databaseReference = firebaseDatabase.getReference("Device");
+        final DatabaseReference databaseReference = firebaseDatabase.getReference("Temperature");
 
         logout = (Button)findViewById(R.id.btnLogout);
+        btnhistoryTemperature = (Button)findViewById(R.id.btnhistoryTemperature) ;
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +59,13 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Toast.makeText(SecondActivity.this, databaseError.getCode(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        btnhistoryTemperature.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SecondActivity.this, HistoryTemperatureList.class));
             }
         });
 
