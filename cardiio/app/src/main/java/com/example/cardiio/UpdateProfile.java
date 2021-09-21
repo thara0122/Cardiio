@@ -35,21 +35,20 @@ import java.io.IOException;
 
 public class UpdateProfile extends AppCompatActivity {
 
-    private EditText newUserName  , newUserAge;
+    private EditText newUserName, newUserAge;
     private TextView newUserEmail;
     private Button save;
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
     private ImageView updateProfilePic;
-    private  static int PICK_IMAGE = 123;
-    Uri imagePath;
-    private StorageReference storageReference;
     private FirebaseStorage firebaseStorage;
-
+    private StorageReference storageReference;
+    private static int PICK_IMAGE = 123;
+    Uri imagePath;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if(requestCode == PICK_IMAGE && resultCode == RESULT_OK && data.getData() !=null){
+        if(requestCode == PICK_IMAGE && resultCode == RESULT_OK && data.getData() != null){
             imagePath = data.getData();
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), imagePath);
@@ -60,8 +59,6 @@ public class UpdateProfile extends AppCompatActivity {
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +71,7 @@ public class UpdateProfile extends AppCompatActivity {
         save = findViewById(R.id.btnSave);
         updateProfilePic = findViewById(R.id.ivProfileUpdate);
 
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         firebaseAuth = FirebaseAuth.getInstance();
@@ -81,9 +79,10 @@ public class UpdateProfile extends AppCompatActivity {
         firebaseStorage = FirebaseStorage.getInstance();
 
         final DatabaseReference databaseReference = firebaseDatabase.getReference("UserInfo").child(firebaseAuth.getUid());
-        StorageReference storageReference = firebaseStorage.getReference();
+        storageReference = firebaseStorage.getReference();
 
         StorageReference mImageRef = FirebaseStorage.getInstance().getReference().child(firebaseAuth.getUid()).child("Images").child("Profile Picture");
+        //StorageReference imageReference = storageReference.child(firebaseAuth.getUid()).child("Images").child("Profile Pic");
         final long ONE_MEGABYTE = 1024 * 1024;
 
         mImageRef.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
@@ -103,6 +102,20 @@ public class UpdateProfile extends AppCompatActivity {
                 // Handle any errors
             }
         });
+
+
+        updateProfilePic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setType("image/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(Intent.createChooser(intent, "Select Image"), PICK_IMAGE);
+
+            }
+        });
+
+
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -115,20 +128,18 @@ public class UpdateProfile extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Toast.makeText(UpdateProfile.this, databaseError.getCode(), Toast.LENGTH_SHORT).show();
+
             }
         });
 
-
-
-
-        save.setOnClickListener(new View.OnClickListener() {
+        save.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View v) {
+            public void onClick(View view){
                 String name = newUserName.getText().toString();
                 String age = newUserAge.getText().toString();
                 String email = newUserEmail.getText().toString();
 
-                UserProfile userProfile = new UserProfile(age, email , name);
+                UserProfile userProfile = new UserProfile(age, email, name);
 
                 databaseReference.setValue(userProfile);
 
@@ -137,40 +148,37 @@ public class UpdateProfile extends AppCompatActivity {
                 uploadTask.addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(UpdateProfile.this,"Upload Failed", Toast.LENGTH_SHORT).show();
-
+                        Toast.makeText(UpdateProfile.this, "Upload Failed", Toast.LENGTH_SHORT).show();
                     }
                 }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        Toast.makeText(UpdateProfile.this,"Upload Successful", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(UpdateProfile.this,ProfileActivity.class));
+                        Toast.makeText(UpdateProfile.this, "Upload Succesfully", Toast.LENGTH_SHORT).show();
                     }
                 });
 
-
+                finish();
             }
         });
 
         updateProfilePic.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view){
                 Intent intent = new Intent();
-                intent.setType(("image/*"));
+                intent.setType("image/*");
                 intent.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(Intent.createChooser(intent, "Select image"), PICK_IMAGE);
+                startActivityForResult(Intent.createChooser(intent,"Select image"),PICK_IMAGE );
             }
         });
-
-
     }
 
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item){
 
         switch (item.getItemId()){
             case android.R.id.home:
                 onBackPressed();
+
         }
         return super.onOptionsItemSelected(item);
     }

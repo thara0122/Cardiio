@@ -75,32 +75,32 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 checkCredential();
-               validate(Name.getText() .toString(),Password.getText().toString());
+               //validate(Name.getText().toString(),Password.getText().toString());
 
             }
 
-            private void checkCredential() {
-                password = Password.getText().toString();
-                email = Name.getText().toString();
-
-                if (email.isEmpty() || !email.contains("@")){
-                    showError(Name,"Email is not valid");
-                }
-                else if(password.isEmpty() || password.length()<7){
-                    showError(Password,"Password Must be 7 character");
-                }
-                else if(password.isEmpty() || email.isEmpty() ) {
-                    Toast.makeText(MainActivity.this, "Please enter all the details", Toast.LENGTH_SHORT).show();
-
-                }
-                else{
-                }
-            }
-
-            private void showError(EditText user, String s) {
-                user.setError(s);
-                user.requestFocus();
-            }
+//            private void checkCredential() {
+//                password = Password.getText().toString();
+//                email = Name.getText().toString();
+//
+//                if (email.isEmpty() || !email.contains("@")){
+//                    showError(Name,"Email is not valid");
+//                }
+//                else if(password.isEmpty() || password.length()<7){
+//                    showError(Password,"Password Must be 7 character");
+//                }
+//                else if(password.isEmpty() || email.isEmpty() ) {
+//                    Toast.makeText(MainActivity.this, "Please enter all the details", Toast.LENGTH_SHORT).show();
+//
+//                }
+//                else{
+//                }
+//            }
+//
+//            private void showError(EditText user, String s) {
+//                user.setError(s);
+//                user.requestFocus();
+//            }
         });
 
         userRegistration.setOnClickListener(new View.OnClickListener() {
@@ -174,5 +174,27 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this,"Verity Your Email", Toast.LENGTH_SHORT).show();
             firebaseAuth.signOut();
         }
+    }
+    private void checkCredential() {
+        password = Password.getText().toString();
+        email = Name.getText().toString();
+
+        if (email.isEmpty() || !email.contains("@")){
+            showError(Name,"Email is not valid");
+        }
+        else if(password.isEmpty() || password.length()<7){
+            showError(Password,"Password Must be 7 character");
+        }
+        else if(password.isEmpty() || email.isEmpty() ) {
+            Toast.makeText(MainActivity.this, "Please enter all the details", Toast.LENGTH_SHORT).show();
+
+        }
+        else{validate(Name.getText().toString(),Password.getText().toString());
+
+        }
+    }
+    private void showError(EditText user, String s) {
+        user.setError(s);
+        user.requestFocus();
     }
 }
