@@ -91,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else if(password.isEmpty() || email.isEmpty() ) {
                     Toast.makeText(MainActivity.this, "Please enter all the details", Toast.LENGTH_SHORT).show();
+
                 }
                 else{
                 }
