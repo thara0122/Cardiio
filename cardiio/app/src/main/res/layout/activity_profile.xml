@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/sprk_default_preset_name_iphone_x_xs_11_pro__1"
+    android:background="@drawable/google_pixel_5__1"
     tools:context=".ProfileActivity">
 
     <ImageView
@@ -30,6 +30,7 @@
         android:padding="8dp"
         android:text="Name:"
         app:layout_constraintBottom_toBottomOf="parent"
+        android:drawableStart="@drawable/ic_baseline_person_pin_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.479"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,6 +49,7 @@
         android:text="Age:"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:drawableStart="@drawable/ic_baseline_people_24"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvProfileName"
@@ -57,6 +59,7 @@
         android:id="@+id/tvProfileEmail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_baseline_email_24"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
