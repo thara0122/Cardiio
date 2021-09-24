@@ -17,10 +17,10 @@
         android:title="Profile">
     </item>
 
-    <!-- <item
-         android:id="@+id/refreshMenu"
+    <item
+         android:id="@+id/AboutUsMenu"
          android:orderInCategory= "300"
          app:showAsAction="never"
-         android:title="Refresh">
-     </item>-->
+         android:title="About Us">
+     </item>
  </menu>
