@@ -15,10 +15,11 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/round_border"
+        android:drawableStart="@drawable/ic_baseline_email_24"
+        android:drawablePadding="16dp"
         android:ems="10"
         android:hint="Email"
         android:inputType="textPersonName"
-        android:drawableStart="@drawable/ic_baseline_email_24"
         android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,17 +36,18 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/round_border"
+        android:drawableStart="@drawable/ic_baseline_vpn_key_24"
+        android:drawablePadding="16dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
-        android:drawableStart="@drawable/ic_baseline_vpn_key_24"
         android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.427"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etName"
-        app:layout_constraintVertical_bias="0.155" />
+        app:layout_constraintVertical_bias="0.093" />
 
     <Button
         android:id="@+id/btnLogin"
@@ -69,14 +71,14 @@
         android:layout_height="wrap_content"
         android:text="New User? sign up"
         android:textColor="#774397"
-        android:textSize="22sp"
+        android:textSize="16dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.462"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.883" />
+        app:layout_constraintVertical_bias="0.834" />
 
     <TextView
         android:id="@+id/tvForgotPassword"
@@ -88,7 +90,8 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.462"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnLogin"
-        app:layout_constraintVertical_bias="0.201" />
+        app:layout_constraintVertical_bias="0.179" />
 </androidx.constraintlayout.widget.ConstraintLayout>
