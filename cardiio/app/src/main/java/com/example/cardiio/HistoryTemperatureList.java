@@ -43,6 +43,8 @@ public class HistoryTemperatureList extends AppCompatActivity {
         tempHistDatabase = FirebaseDatabase.getInstance().getReference().child("History_Temperature/");
         temperatureHistoryList = (ListView)findViewById(R.id.lvTemperatureHistory);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, tempHist);
 
         temperatureHistoryList.setAdapter(arrayAdapter);

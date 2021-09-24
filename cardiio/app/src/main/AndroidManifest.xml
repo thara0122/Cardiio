@@ -15,7 +15,8 @@
         android:theme="@style/Theme.Cardiio">
         <activity
             android:name=".HistoryTemperatureList"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".SecondActivity"/>
         <activity
             android:name=".AdminHome"
             android:exported="true" />
@@ -35,7 +36,8 @@
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".PasswordActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".RegistrationActivity"
             android:exported="true" />
