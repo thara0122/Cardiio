@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">cardiio</string>
+    <string name="app_name">Cardiio</string>
     <string name="username">Username</string>
     <string name="email">Email</string>
     <string name="age">Age</string>

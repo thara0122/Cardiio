@@ -13,9 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Cardiio">
         <activity
+            android:name=".AboutUs"
+            android:exported="true" />
+        <activity
             android:name=".HistoryTemperatureList"
             android:exported="true"
-            android:parentActivityName=".SecondActivity"/>
+            android:parentActivityName=".SecondActivity" />
         <activity
             android:name=".AdminHome"
             android:exported="true" />
@@ -36,7 +39,7 @@
         <activity
             android:name=".PasswordActivity"
             android:exported="true"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".RegistrationActivity"
             android:exported="true" />

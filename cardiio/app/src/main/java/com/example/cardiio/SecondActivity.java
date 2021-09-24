@@ -26,7 +26,6 @@ public class SecondActivity extends AppCompatActivity {
     private TextView bodyTemperature;
     private FirebaseDatabase firebaseDatabase;
     private Button btnhistoryTemperature;
-    private Button btnaboutus;
 
 
     @Override
@@ -40,7 +39,7 @@ public class SecondActivity extends AppCompatActivity {
         final DatabaseReference databaseReference = firebaseDatabase.getReference("Temperature");
 
         logout = (Button)findViewById(R.id.btnLogout);
-        btnaboutus =(Button)findViewById(R.id.btnaboutus);
+
         btnhistoryTemperature = (Button)findViewById(R.id.btnhistoryTemperature) ;
 
         logout.setOnClickListener(new View.OnClickListener() {
@@ -71,14 +70,6 @@ public class SecondActivity extends AppCompatActivity {
                 startActivity(new Intent(SecondActivity.this, HistoryTemperatureList.class));
             }
         });
-
-        btnaboutus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(SecondActivity.this, AboutUs.class));
-            }
-        });
-
 
     }
 
