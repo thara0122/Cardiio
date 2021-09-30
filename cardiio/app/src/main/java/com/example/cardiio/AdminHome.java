@@ -53,6 +53,10 @@ public class AdminHome extends AppCompatActivity {
             case R.id.profileMenu:
                 startActivity(new Intent(AdminHome.this,ProfileActivity.class));
                 break;
+
+            case R.id.ListOfUsersMenu:
+                startActivity(new Intent(AdminHome.this,UserList.class));
+                break;
         }
         return super.onOptionsItemSelected(item);
     }

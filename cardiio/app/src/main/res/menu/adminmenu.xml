@@ -19,9 +19,9 @@
     </item>
 
     <item
-        android:id="@+id/refreshMenu"
+        android:id="@+id/ListOfUsersMenu"
         android:orderInCategory= "300"
         app:showAsAction="never"
-        android:title="Refresh">
+        android:title="List of Users">
     </item>
 </menu>

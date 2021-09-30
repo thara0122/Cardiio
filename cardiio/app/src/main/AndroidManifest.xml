@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Cardiio">
         <activity
+            android:name=".UserList"
+            android:exported="true" />
+        <activity
             android:name=".AboutUs"
             android:exported="true" />
         <activity
