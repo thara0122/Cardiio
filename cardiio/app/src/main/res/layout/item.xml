@@ -44,6 +44,28 @@
             android:textSize="20dp"
             android:textStyle="bold" />
 
+        <LinearLayout
+            android:layout_below="@+id/tvAge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="173dp"
+                android:layout_height="wrap_content"
+                android:text="Edit"
+                android:layout_marginRight="5dp"
+                android:id="@+id/btnedit"/>
+
+            <Button
+                android:layout_width="173dp"
+                android:layout_height="wrap_content"
+                android:text="Delete"
+                android:layout_marginLeft="5dp"
+                android:id="@+id/btndelete"/>
+
+
+        </LinearLayout>
 
 
 

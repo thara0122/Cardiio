@@ -14,7 +14,8 @@
         android:theme="@style/Theme.Cardiio">
         <activity
             android:name=".UserList"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".AdminHome"/>
         <activity
             android:name=".AboutUs"
             android:exported="true" />
