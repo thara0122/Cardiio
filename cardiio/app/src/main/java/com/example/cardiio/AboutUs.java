@@ -17,6 +17,7 @@ public class AboutUs extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about_us);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         videoView = findViewById(R.id.videoView);
         button = findViewById(R.id.button);

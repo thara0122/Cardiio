@@ -18,7 +18,8 @@
             android:parentActivityName=".AdminHome"/>
         <activity
             android:name=".AboutUs"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".AdminHome"/>
         <activity
             android:name=".HistoryTemperatureList"
             android:exported="true"
