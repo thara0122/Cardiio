@@ -10,6 +10,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:padding="15dp">
 
         <TextView
@@ -45,28 +46,27 @@
             android:textStyle="bold" />
 
         <LinearLayout
-            android:layout_below="@+id/tvAge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/tvAge"
             android:orientation="horizontal">
 
             <Button
+                android:id="@+id/btnedit"
                 android:layout_width="173dp"
                 android:layout_height="wrap_content"
-                android:text="Edit"
                 android:layout_marginRight="5dp"
-                android:id="@+id/btnedit"/>
+                android:text="Edit" />
 
             <Button
+                android:id="@+id/btndelete"
                 android:layout_width="173dp"
                 android:layout_height="wrap_content"
-                android:text="Delete"
                 android:layout_marginLeft="5dp"
-                android:id="@+id/btndelete"/>
+                android:text="Delete" />
 
 
         </LinearLayout>
-
 
 
     </RelativeLayout>
