@@ -23,6 +23,7 @@
         app:layout_constraintVertical_bias="0.898" />
 
     <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/gifImageView"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:src="@drawable/heart"
@@ -42,7 +43,6 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/round_border"
-        android:drawableEnd="@drawable/ic_baseline_history_24"
         android:padding="16dp"
         android:text="Body Temperature :"
         android:textSize="18sp"
@@ -54,16 +54,50 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.464" />
 
-    <Button
-        android:id="@+id/btnhistoryTemperature"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/tvHeartPulse"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="History Temperature"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/round_border"
+        android:padding="16dp"
+        android:text="Heart Pulse :"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.682" />
+        app:layout_constraintVertical_bias="0.575" />
+
+    <ImageButton
+        android:id="@+id/IBHistoryTemperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.86"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.479"
+        app:srcCompat="@drawable/ic_baseline_history_24" />
+
+    <ImageButton
+        android:id="@+id/IBHistoryHeartRate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.86"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.582"
+        app:srcCompat="@drawable/ic_baseline_history_24" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,6 @@
 package com.example.cardiio;
 
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -22,30 +23,32 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class HistoryTemperatureList extends AppCompatActivity {
+import android.os.Bundle;
 
-    private DatabaseReference tempHistDatabase;
-    private ListView temperatureHistoryList;
+public class HistoryHeartPulseList extends AppCompatActivity {
+
+    private DatabaseReference heartPulseHistDatabase;
+    private ListView hearPulseHistoryList;
     private FirebaseAuth firebaseAuth;
 
-    private ArrayList<String> tempHist = new ArrayList<>();
+    private ArrayList<String> heartPulseHist = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_history_temperature_list);
+        setContentView(R.layout.activity_history_heart_pulse_list);
 
         firebaseAuth = FirebaseAuth.getInstance();
-        tempHistDatabase = FirebaseDatabase.getInstance().getReference().child("History_Temperature/");
-        temperatureHistoryList = (ListView)findViewById(R.id.lvTemperatureHistory);
+        heartPulseHistDatabase = FirebaseDatabase.getInstance().getReference().child("History_Heart_Pulse");
+        hearPulseHistoryList = (ListView)findViewById(R.id.lvHeartPulseHistory);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, tempHist);
+        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,heartPulseHist );
 
-        temperatureHistoryList.setAdapter(arrayAdapter);
+        hearPulseHistoryList.setAdapter(arrayAdapter);
 
-        tempHistDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+        heartPulseHistDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
@@ -56,11 +59,11 @@ public class HistoryTemperatureList extends AppCompatActivity {
                         Object data = dataMap.get(key);
                         try {
                             Log.e("@@@", "onDataChange: " + data.toString());
-                            tempHist.add(data.toString());
+                            heartPulseHist.add(data.toString());
                         } catch (ClassCastException cce) {
                             // If the object can’t be casted into HashMap, it means that it is of type String.
                             String mString = String.valueOf(dataMap.get(key));
-                            tempHist.add(data.toString());
+                            heartPulseHist.add(data.toString());
                         }
                     }
                     arrayAdapter.notifyDataSetChanged();

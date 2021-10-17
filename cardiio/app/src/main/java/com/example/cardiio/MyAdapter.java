@@ -58,13 +58,13 @@ public class MyAdapter extends FirebaseRecyclerAdapter<Users,MyAdapter.myViewHol
                 View view = dialogPlus.getHolderView();
 
                 EditText name = view.findViewById(R.id.txtName);
-                EditText email = view.findViewById(R.id.txtEmail);
+                //EditText email = view.findViewById(R.id.txtEmail);
                 EditText age = view.findViewById(R.id.txtAge);
 
                 Button btnUpdate = view.findViewById(R.id.btnUpdate);
 
                 name.setText(model.getUserName());
-                email.setText(model.getUserEmail());
+                //email.setText(model.getUserEmail());
                 age.setText(model.getUserAge());
 
                 dialogPlus.show();
@@ -74,7 +74,7 @@ public class MyAdapter extends FirebaseRecyclerAdapter<Users,MyAdapter.myViewHol
                     public void onClick(View v) {
                         Map<String,Object> map = new HashMap<>();
                         map.put("userName",name.getText().toString());
-                        map.put("userEmail",email.getText().toString());
+                       // map.put("userEmail",email.getText().toString());
                         map.put("userAge",age.getText().toString());
 
                         FirebaseDatabase.getInstance().getReference().child("UserInfo")

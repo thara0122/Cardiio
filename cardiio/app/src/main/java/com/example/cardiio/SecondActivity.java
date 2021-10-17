@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,8 +25,10 @@ public class SecondActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private Button logout;
     private TextView bodyTemperature;
+    private TextView HeartPulse;
     private FirebaseDatabase firebaseDatabase;
-    private Button btnhistoryTemperature;
+    private ImageButton imbHistoryTemperature;
+    private ImageButton imbHistoryHeartPulse;
 
 
     @Override
@@ -35,12 +38,14 @@ public class SecondActivity extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
         bodyTemperature = (TextView)findViewById(R.id.tvBodyTemperature);
+        HeartPulse = (TextView)findViewById(R.id.tvHeartPulse);
         firebaseDatabase = FirebaseDatabase.getInstance();
         final DatabaseReference databaseReference = firebaseDatabase.getReference("Temperature");
 
         logout = (Button)findViewById(R.id.btnLogout);
 
-        btnhistoryTemperature = (Button)findViewById(R.id.btnhistoryTemperature) ;
+        imbHistoryTemperature = (ImageButton)findViewById(R.id.IBHistoryTemperature);
+        imbHistoryHeartPulse = (ImageButton)findViewById(R.id.IBHistoryHeartRate);
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +61,10 @@ public class SecondActivity extends AppCompatActivity {
                 String temperature = dataSnapshot.child("Temperature").getValue().toString();
                 bodyTemperature.setText("Body Temperature : " + temperature);
 
+                String heartPulse = dataSnapshot.child("Heart Pulse").getValue().toString();
+                HeartPulse.setText("Heart Pulse : " + heartPulse);
+
+
             }
 
             @Override
@@ -64,10 +73,18 @@ public class SecondActivity extends AppCompatActivity {
             }
         });
 
-        btnhistoryTemperature.setOnClickListener(new View.OnClickListener() {
+
+        imbHistoryTemperature.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SecondActivity.this, HistoryTemperatureList.class));
+                startActivity(new Intent(SecondActivity.this,HistoryTemperatureList.class));
+            }
+        });
+
+        imbHistoryHeartPulse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SecondActivity.this,HistoryHeartPulseList.class));
             }
         });
 

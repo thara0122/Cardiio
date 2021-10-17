@@ -4,20 +4,5 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/colorized_splash_v2__1"
-    tools:context=".AdminHome">
-
-    <pl.droidsonroids.gif.GifImageView
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:src="@drawable/giphy"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.823"
-        tools:ignore="MissingClass,MissingConstraints" />
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    android:background="@drawable/whatsapp_image_2021_10_17_at_11_46_27_pm"
+    tools:context=".AdminHome" />

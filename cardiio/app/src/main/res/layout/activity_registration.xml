@@ -97,7 +97,7 @@
         android:id="@+id/tvUserLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Already sign in? Login"
+        android:text="Already Sign In? Login"
         android:textColor="#774397"
         android:textSize="16sp"
         android:textStyle="bold"
