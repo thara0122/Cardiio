@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/whatsapp_image_2021_10_17_at_11_46_27_pm"
+    android:background="@drawable/oik"
     tools:context=".AdminHome">
 
     <TextView
@@ -17,7 +17,7 @@
         android:background="@drawable/round_border"
         android:padding="16dp"
         android:text="Body Temperature :"
-        android:textColor="#FBFBFB"
+        android:textColor="#050000"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -37,7 +37,7 @@
         android:background="@drawable/round_border"
         android:padding="16dp"
         android:text="Heart Pulse :"
-        android:textColor="#FFFFFF"
+        android:textColor="#050000"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -45,7 +45,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.575" />
+        app:layout_constraintVertical_bias="0.6" />
 
     <ImageButton
         android:id="@+id/IBHistoryTemperature"
@@ -67,10 +67,10 @@
         android:background="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.86"
+        app:layout_constraintHorizontal_bias="0.859"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.582"
+        app:layout_constraintVertical_bias="0.607"
         app:srcCompat="@drawable/ic_baseline_history_24" />
 
     <TextView
@@ -82,7 +82,7 @@
         android:background="@drawable/round_border"
         android:padding="16dp"
         android:text="Spo2 :"
-        android:textColor="#FAF7F7"
+        android:textColor="#050000"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -90,7 +90,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvHeartPulse"
-        app:layout_constraintVertical_bias="0.098" />
+        app:layout_constraintVertical_bias="0.183" />
 
     <ImageButton
         android:id="@+id/IBHistorySPO2"
@@ -99,10 +99,10 @@
         android:background="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.86"
+        app:layout_constraintHorizontal_bias="0.859"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.695"
+        app:layout_constraintVertical_bias="0.736"
         app:srcCompat="@drawable/ic_baseline_history_24" />
 
 
