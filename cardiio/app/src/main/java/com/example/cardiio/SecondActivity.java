@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,6 +30,9 @@ public class SecondActivity extends AppCompatActivity {
     private FirebaseDatabase firebaseDatabase;
     private ImageButton imbHistoryTemperature;
     private ImageButton imbHistoryHeartPulse;
+    private TextView Spo2;
+    private ImageButton imbHistorySpo2;
+
 
 
     @Override
@@ -39,6 +43,7 @@ public class SecondActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         bodyTemperature = (TextView)findViewById(R.id.tvBodyTemperature);
         HeartPulse = (TextView)findViewById(R.id.tvHeartPulse);
+        Spo2 = (TextView)findViewById(R.id.tvSpo2);
         firebaseDatabase = FirebaseDatabase.getInstance();
         final DatabaseReference databaseReference = firebaseDatabase.getReference("Temperature");
 
@@ -46,6 +51,7 @@ public class SecondActivity extends AppCompatActivity {
 
         imbHistoryTemperature = (ImageButton)findViewById(R.id.IBHistoryTemperature);
         imbHistoryHeartPulse = (ImageButton)findViewById(R.id.IBHistoryHeartRate);
+        imbHistorySpo2 = (ImageButton)findViewById(R.id.IBHistorySPO2);
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,6 +69,10 @@ public class SecondActivity extends AppCompatActivity {
 
                 String heartPulse = dataSnapshot.child("Heart Pulse").getValue().toString();
                 HeartPulse.setText("Heart Pulse : " + heartPulse);
+
+                String spo2 = dataSnapshot.child("SPO2").getValue().toString();
+                Spo2.setText(("SPO2 :" + spo2));
+
 
 
             }
@@ -85,6 +95,13 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(SecondActivity.this,HistoryHeartPulseList.class));
+            }
+        });
+
+        imbHistorySpo2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SecondActivity.this,HistorySpo2List.class));
             }
         });
 

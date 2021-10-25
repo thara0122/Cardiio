@@ -13,9 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Cardiio">
         <activity
-            android:name=".HistoryHeartPulseList"
+            android:name=".HistorySpo2List"
             android:exported="true"
             android:parentActivityName=".SecondActivity"/>
+        <activity
+            android:name=".HistoryHeartPulseList"
+            android:exported="true"
+            android:parentActivityName=".SecondActivity" />
         <activity
             android:name=".UserList"
             android:exported="true"
