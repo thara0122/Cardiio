@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/oik"
+    android:background="@drawable/google_pixel_5__1"
     tools:context=".AdminHome">
 
     <TextView
@@ -25,7 +25,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.464" />
+        app:layout_constraintVertical_bias="0.405" />
 
     <TextView
         android:id="@+id/tvHeartPulse"
@@ -42,10 +42,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6" />
+        app:layout_constraintVertical_bias="0.537" />
 
     <ImageButton
         android:id="@+id/IBHistoryTemperature"
@@ -57,7 +57,7 @@
         app:layout_constraintHorizontal_bias="0.86"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.479"
+        app:layout_constraintVertical_bias="0.425"
         app:srcCompat="@drawable/ic_baseline_history_24" />
 
     <ImageButton
@@ -67,10 +67,10 @@
         android:background="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.859"
+        app:layout_constraintHorizontal_bias="0.86"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.607"
+        app:layout_constraintVertical_bias="0.545"
         app:srcCompat="@drawable/ic_baseline_history_24" />
 
     <TextView
@@ -90,7 +90,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvHeartPulse"
-        app:layout_constraintVertical_bias="0.183" />
+        app:layout_constraintVertical_bias="0.117" />
 
     <ImageButton
         android:id="@+id/IBHistorySPO2"
@@ -99,10 +99,10 @@
         android:background="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.859"
+        app:layout_constraintHorizontal_bias="0.86"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.736"
+        app:layout_constraintVertical_bias="0.669"
         app:srcCompat="@drawable/ic_baseline_history_24" />
 
 
