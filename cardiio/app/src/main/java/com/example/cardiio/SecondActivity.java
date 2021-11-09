@@ -40,6 +40,9 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
+        Intent intentBackgroundService = new Intent(this, PushNotification.class);
+        startService(intentBackgroundService);
+
         firebaseAuth = FirebaseAuth.getInstance();
         bodyTemperature = (TextView)findViewById(R.id.tvBodyTemperature);
         HeartPulse = (TextView)findViewById(R.id.tvHeartPulse);
