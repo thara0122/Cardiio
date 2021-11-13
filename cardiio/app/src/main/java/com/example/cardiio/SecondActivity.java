@@ -1,9 +1,17 @@
 package com.example.cardiio;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.view.Menu;
@@ -23,11 +31,15 @@ import com.google.firebase.database.ValueEventListener;
 
 public class SecondActivity extends AppCompatActivity {
 
+
+
+    private static final String HEART_PULSE_CHANNEL_ID = "heartPulse";
     private FirebaseAuth firebaseAuth;
     private Button logout;
     private TextView bodyTemperature;
     private TextView HeartPulse;
     private FirebaseDatabase firebaseDatabase;
+    private FirebaseDatabase firebaseTemp;
     private ImageButton imbHistoryTemperature;
     private ImageButton imbHistoryHeartPulse;
     private TextView Spo2;
@@ -35,6 +47,7 @@ public class SecondActivity extends AppCompatActivity {
 
 
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +61,9 @@ public class SecondActivity extends AppCompatActivity {
         HeartPulse = (TextView)findViewById(R.id.tvHeartPulse);
         Spo2 = (TextView)findViewById(R.id.tvSpo2);
         firebaseDatabase = FirebaseDatabase.getInstance();
+        firebaseTemp = FirebaseDatabase.getInstance();
         final DatabaseReference databaseReference = firebaseDatabase.getReference("Temperature");
+        final DatabaseReference databaseReference1 = firebaseTemp.getReference("Temperature");
 
         logout = (Button)findViewById(R.id.btnLogout);
 
@@ -83,6 +98,65 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Toast.makeText(SecondActivity.this, databaseError.getCode(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        NotificationChannel HeartPulseChannel =
+                new NotificationChannel(HEART_PULSE_CHANNEL_ID,"HeartPulse",NotificationManager.IMPORTANCE_DEFAULT);
+        HeartPulseChannel.setLightColor(Color.GREEN);
+        NotificationManager nm = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+        nm.createNotificationChannel(HeartPulseChannel);
+
+        databaseReference1.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String heartPulse = snapshot.child("Heart Pulse").getValue().toString();
+                //HeartPulse.setText(heartPulse);
+
+                if(heartPulse.equals("80")){
+                    Intent notificationIntent = new Intent(SecondActivity.this,SecondActivity.class);
+                    PendingIntent pi = PendingIntent.getActivity(SecondActivity.this,0,notificationIntent,0);
+
+                    NotificationCompat.Builder notification = new NotificationCompat.Builder(SecondActivity.this)
+                            .setContentTitle("Heart Rate Monitor!!")
+                            .setContentText("Your Heart Rate is High")
+                            .setSmallIcon(android.R.drawable.stat_notify_error)
+                            .setChannelId(HEART_PULSE_CHANNEL_ID)
+                            .setColor(getResources().getColor(R.color.black))
+                            .setVibrate(new long[] {0,300,300,300})
+                            .setLights(Color.GREEN,1000,5000)
+                            .setContentIntent(pi)
+                            .setAutoCancel(true)
+                            .setPriority(NotificationCompat.PRIORITY_HIGH);
+
+                    //NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                    nm.notify(0,notification.build());
+
+
+                }else if (heartPulse.equals("100")){
+                    Intent notificationIntent = new Intent(SecondActivity.this,SecondActivity.class);
+                    PendingIntent pi = PendingIntent.getActivity(SecondActivity.this,0,notificationIntent,0);
+
+                    NotificationCompat.Builder notification = new NotificationCompat.Builder(SecondActivity.this)
+                            .setContentTitle("Heart Rate Monitor!!")
+                            .setContentText("Your Heart Rate is Morattu High")
+                            .setSmallIcon(android.R.drawable.stat_notify_error)
+                            .setChannelId(HEART_PULSE_CHANNEL_ID)
+                            .setColor(getResources().getColor(R.color.black))
+                            .setVibrate(new long[] {0,300,300,300})
+                            .setLights(Color.WHITE,1000,5000)
+                            .setContentIntent(pi)
+                            .setAutoCancel(true)
+                            .setPriority(NotificationCompat.PRIORITY_HIGH);
+
+                    NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                    notificationManager.notify(0,notification.build());
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(SecondActivity.this, error.getCode(), Toast.LENGTH_SHORT).show();
             }
         });
 
