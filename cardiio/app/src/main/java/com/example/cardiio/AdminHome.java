@@ -1,10 +1,19 @@
 package com.example.cardiio;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,16 +32,19 @@ import com.google.firebase.database.ValueEventListener;
 
 public class AdminHome extends AppCompatActivity {
 
+    private static final String HEART_PULSE_CHANNEL_ID = "heartPulse";
     private FirebaseAuth firebaseAuth;
     private Button logout;
     private TextView bodyTemperature;
     private TextView HeartPulse;
     private TextView Spo2;
+    private FirebaseDatabase firebaseHeart;
     private FirebaseDatabase firebaseDatabase;
     private ImageButton imbHistoryTemperature;
     private ImageButton imbHistoryHeartPulse;
     private ImageButton imbHistorySpo2;
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +54,9 @@ public class AdminHome extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
+        firebaseHeart = FirebaseDatabase.getInstance();
         final DatabaseReference databaseReference = firebaseDatabase.getReference("Temperature");
+        final DatabaseReference databaseReference1 = firebaseHeart.getReference("Temperature");
         bodyTemperature = (TextView)findViewById(R.id.tvBodyTemperature);
         HeartPulse = (TextView)findViewById(R.id.tvHeartPulse);
         Spo2 = (TextView)findViewById(R.id.tvSpo2);
@@ -71,6 +85,68 @@ public class AdminHome extends AppCompatActivity {
                 Toast.makeText(AdminHome.this, databaseError.getCode(), Toast.LENGTH_SHORT).show();
             }
         });
+
+        NotificationChannel HeartPulseChannel =
+                new NotificationChannel(HEART_PULSE_CHANNEL_ID,"HeartPulse", NotificationManager.IMPORTANCE_DEFAULT);
+        HeartPulseChannel.setLightColor(Color.GREEN);
+        NotificationManager nm = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+        nm.createNotificationChannel(HeartPulseChannel);
+
+        databaseReference1.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String heartPulse = snapshot.child("Heart Pulse").getValue().toString();
+                //HeartPulse.setText(heartPulse);
+
+                if(heartPulse.equals("80")){
+                    Intent notificationIntent = new Intent(AdminHome.this,AdminHome.class);
+                    PendingIntent pi = PendingIntent.getActivity(AdminHome.this,0,notificationIntent,0);
+
+                    NotificationCompat.Builder notification = new NotificationCompat.Builder(AdminHome.this)
+                            .setContentTitle("Heart Rate Monitor!!")
+                            .setContentText("Your Heart Rate is Normal. Stay Safe Stay Healthy ")
+                            .setStyle(new NotificationCompat.BigTextStyle().bigText(getString(R.string.Heart_Rate_less100)))
+                            .setSmallIcon(R.mipmap.ic_launcher_round).setLargeIcon(BitmapFactory.decodeResource(AdminHome.this.getResources(),R.mipmap.ic_launcher_round))
+                            .setChannelId(HEART_PULSE_CHANNEL_ID)
+                            .setColor(getResources().getColor(R.color.purple_200))
+                            .setVibrate(new long[] {0,300,300,300})
+                            .setLights(Color.GREEN,1000,5000)
+                            .setContentIntent(pi)
+                            .setAutoCancel(true)
+                            .setPriority(NotificationCompat.PRIORITY_HIGH);
+
+                    //NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                    nm.notify(0,notification.build());
+
+
+                }else if (heartPulse.equals("100")){
+                    Intent notificationIntent = new Intent(AdminHome.this,AdminHome.class);
+                    PendingIntent pi = PendingIntent.getActivity(AdminHome.this,0,notificationIntent,0);
+
+                    NotificationCompat.Builder notification = new NotificationCompat.Builder(AdminHome.this)
+                            .setContentTitle("Heart Rate Monitor!!")
+                            .setContentText("Your Heart Rate is High")
+                            .setStyle(new NotificationCompat.BigTextStyle().bigText(getString(R.string.Heart_Rate_more100)))
+                            .setSmallIcon(R.mipmap.ic_launcher_round).setLargeIcon(BitmapFactory.decodeResource(AdminHome.this.getResources(),R.mipmap.ic_launcher_round))
+                            .setChannelId(HEART_PULSE_CHANNEL_ID)
+                            .setColor(getResources().getColor(R.color.purple_200))
+                            .setVibrate(new long[] {0,300,300,300})
+                            .setLights(Color.WHITE,1000,5000)
+                            .setContentIntent(pi)
+                            .setAutoCancel(true)
+                            .setPriority(NotificationCompat.PRIORITY_HIGH);
+
+                    NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                    notificationManager.notify(0,notification.build());
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(AdminHome.this, error.getCode(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
 
         imbHistoryTemperature.setOnClickListener(new View.OnClickListener() {

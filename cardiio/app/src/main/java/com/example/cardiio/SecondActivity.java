@@ -10,6 +10,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -119,10 +120,11 @@ public class SecondActivity extends AppCompatActivity {
 
                     NotificationCompat.Builder notification = new NotificationCompat.Builder(SecondActivity.this)
                             .setContentTitle("Heart Rate Monitor!!")
-                            .setContentText("Your Heart Rate is High")
-                            .setSmallIcon(android.R.drawable.stat_notify_error)
+                            .setContentText("Your Heart Rate is Normal. Stay Safe Stay Healthy")
+                            .setStyle(new NotificationCompat.BigTextStyle().bigText(getString(R.string.Heart_Rate_less100)))
+                            .setSmallIcon(R.mipmap.ic_launcher_round).setLargeIcon(BitmapFactory.decodeResource(SecondActivity.this.getResources(),R.mipmap.ic_launcher_round))
                             .setChannelId(HEART_PULSE_CHANNEL_ID)
-                            .setColor(getResources().getColor(R.color.black))
+                            .setColor(getResources().getColor(R.color.purple_200))
                             .setVibrate(new long[] {0,300,300,300})
                             .setLights(Color.GREEN,1000,5000)
                             .setContentIntent(pi)
@@ -139,12 +141,13 @@ public class SecondActivity extends AppCompatActivity {
 
                     NotificationCompat.Builder notification = new NotificationCompat.Builder(SecondActivity.this)
                             .setContentTitle("Heart Rate Monitor!!")
-                            .setContentText("Your Heart Rate is Morattu High")
-                            .setSmallIcon(android.R.drawable.stat_notify_error)
+                            .setContentText("Your Heart Rate is High. Please check in your nearby clinic")
+                            .setStyle(new NotificationCompat.BigTextStyle().bigText(getString(R.string.Heart_Rate_more100)))
+                            .setSmallIcon(R.mipmap.ic_launcher_round).setLargeIcon(BitmapFactory.decodeResource(SecondActivity.this.getResources(),R.mipmap.ic_launcher_round))
                             .setChannelId(HEART_PULSE_CHANNEL_ID)
-                            .setColor(getResources().getColor(R.color.black))
+                            .setColor(getResources().getColor(R.color.purple_200))
                             .setVibrate(new long[] {0,300,300,300})
-                            .setLights(Color.WHITE,1000,5000)
+                            .setLights(Color.RED,1000,5000)
                             .setContentIntent(pi)
                             .setAutoCancel(true)
                             .setPriority(NotificationCompat.PRIORITY_HIGH);

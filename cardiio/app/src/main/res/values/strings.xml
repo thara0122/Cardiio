@@ -5,4 +5,7 @@
     <string name="age">Age</string>
     <string name="save">Save</string>
     <string name="todo">TODO</string>
+
+    <string name="Heart_Rate_more100">Your Heart Rate is High. Please check in your nearby clinic</string>
+    <string name="Heart_Rate_less100">Your Heart Rate is Normal. Stay Safe Stay Healthy </string>
 </resources>
